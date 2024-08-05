@@ -281,36 +281,43 @@ Syntax : df -T
 ### Go back to CYS
 ![](./pics/60.png)
 
+
+
 ## Working with Files 
 ### Add commands which you learnt during lab session in the file commands.txt
+![](./pics/61.png)
+![](./pics/62.png)
+![](./pics/63.png)
 
 ### Change the timestamp of the file to yesterday
+![](./pics/64.png)
 
 ### Copy the contents from the file commands.txt to commands_demo.txt
+![](./pics/65.png)
 
 ### Rename the file commands_demo.txt to duplicate
+![](./pics/66.png)
 
 ### Rename all .html to .hldd
+![](./pics/67.png)
 
 ### Delete the file duplicate
+![](./pics/68.png)
 
 ### Copy the contents commands.txt to unit4 and unit5 (using relative path)
+![](./pics/69.png)
 
 ### Delete the contents from unit5 (using absolute path)
+![](./pics/70.png)
 
 ### Navigate to root
-
+![](./pics/71.png)
 ### List all the files under root
-
+![](./pics/72.png)
 ### Explore all the folders (Do not delete any folder)
-
-### Navigate to /etc/passwd
-
-### Open the file passwd
-
-### Explore the file  passwd
-
+![](./pics/73.png)
 ### Navigate to /etc/group and explore 
+![](./pics/74.png)
 
 ## Difference between 
 ### GUI vs. CLI
@@ -340,6 +347,7 @@ Syntax : df -T
 echo "Name: Abhinav"
 echo "Hobbies: Linux commands"
 ```
-## Interesting commands to Explore 
-### Banner 
+## Interesting commands to Explore
 ### History 
+![](./pics/75.png)
+![](./pics/76.png)
