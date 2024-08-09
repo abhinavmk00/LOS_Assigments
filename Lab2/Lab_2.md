@@ -3,6 +3,8 @@
 ## File Structure
 
 ### 1. Root Directory Files
+
+
 |Directory|Usage|
 |---------|-----|
 |/		|Root Directory|
@@ -22,14 +24,18 @@
 
 
 ### 2. Different Types of Files
-|File Type		|Reprsented By	|Role	|How to Check	|Location	|Screenshot	|
-|---------------|---------------|-------|---------------|-----------|-----------|
-|Regular Files	|-				|| | | |
-|-Text Files	|-|-|-|-|-|
-|-Compressed File	|-|-|-|-|-|
-|-Image	|-|-|-|-|-|
-|Directory	|-|-|-|-|-|
-|Block File	|-|-|-|-|-|
-|Character File	|-|-|-|-|-|
-|Socket File	|-|-|-|-|-|
-|Pipe File	|-|-|-|-|-|
+
+How to Check : ls -la
+
+|File Type		    |Reprsented By	|Role	                |How to Create       |Location	|Screenshot	|
+|-----------------|---------------|---------------------|--------------------|----------|-----------|
+|Regular Files	  |-              |store data           |touch file_name.ext |anywhere  |           |
+|Text Files	      |-              |store text data      |touch file.txt      |anywhere  |           |
+|Compressed File  |-              |store compressed data|zip -r zip.zip file |anywhere  |           |
+|Image  	        |-              |store images         |NA                  |anywhere  |           |
+|Directory	      |d              |store other file type|mkdir dir_name      |anywhere  |           |
+|Block File	      |b              |store storage devices|NA                  |/dev      |           |
+|Character File	  |c              |storage devices with a stream output|NA   |/dev      |           |
+|Socket File	    |s              |transfer data between two processes|NA    |          |           |
+|Pipe File	      |p              |providing inter-process networking|NA     |          |           |
+
