@@ -5,22 +5,22 @@
 ### 1. Root Directory Files
 
 
-|Directory|Usage|
-|---------|-----|
-|/		|Root Directory|
-|/bin	|Binary Files|
-|/boot	|Boot Files|
-|/dev	|Devices|
-|/etc	|log Files|
-|/home	|User Files|
-|/lib	|Library Files|
-|/proc	|Process Files|
-|/sbin	|System Binary Files|
-|/tmp	|Tempoary Files	|
-|/var	|Variable Files	|
-|/opt	|Optional Files	|
-|/srv	|Services|
-|/usr	|Binaries, Libraries, Documentation|
+|Directory|Usage            |
+|---------|-----------------|
+|/		    |Root Directory   |
+|/bin	    |Binary Files     |
+|/boot	  |Boot Files       |
+|/dev	    |Devices          |
+|/etc	    |log Files        |
+|/home	  |User Files       |
+|/lib	    |Library Files    |
+|/proc	  |Process Files    |
+|/sbin	  |System Binary Files|
+|/tmp	    |Tempoary Files	  |
+|/var	    |Variable Files	  |
+|/opt	    |Optional Files	  |
+|/srv	    |Services         |
+|/usr	    |Binaries, Libraries, Documentation|
 
 
 ### 2. Different Types of Files
@@ -38,4 +38,24 @@ How to Check : ls -la
 |Character File	  |c              |storage devices with a stream output|NA   |/dev      |           |
 |Socket File	    |s              |transfer data between two processes|NA    |          |           |
 |Pipe File	      |p              |providing inter-process networking|NA     |          |           |
+
+### 3. Glodding
+### 4. Absolute path and relative path
+### 5. Wildcards
+
+|Notation|Use         |Example        |Screenshot         |
+|--------|------------|---------------|-------------------|
+|*       |            |git add *      |                   |
+|?       |            |ls ?.txt       |                   |
+|[]      |            |               |                   |
+|[!]     |            |               |                   |
+|{}      |            |               |                   |
+
+|Notation     |Use         |Example        |Screenshot         |
+|-------------|------------|---------------|-------------------|
+|[:alnum:]    |            |               |                   |
+|[:alpha:]    |            |               |                   |
+|[:digit:]    |            |               |                   |
+|[:lower:]    |            |               |                   |
+|[:upper:]    |            |               |                   |
 
