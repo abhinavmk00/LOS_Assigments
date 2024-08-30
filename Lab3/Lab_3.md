@@ -3,37 +3,37 @@
 a. Print all the lines with the pattern “they”
 
 ```bash
-grep 'they' filename
+grep 'they' test.txt
 ```
 
 b. Print all the lines other than pattern “They”
 
 ```bash
-grep -v 'They' filename
+grep -v 'They' test.txt
 ```
 
 c. Print all the lines that start with “w”
 
 ```bash
-grep '^w' filename
+grep '^w' test.txt
 ```
 
 d. Print the next lines after the pattern “stone” matches
 
 ```bash
-grep -A 1 'stone' filename
+grep -A 1 'stone' test.txt
 ```
 
 e. Print the 2 lines above the pattern “stone” matches
 
 ```bash
-grep -B 2 'stone' filename
+grep -B 2 'stone' test.txt
 ```
 
 f. Search the pattern with exact match
 
 ```bash
-grep -w 'pattern' filename
+grep -w 'pattern' test.txt
 ```
 
 ### Variations of grep Command
@@ -67,7 +67,7 @@ d. egrep
     egrep is an extended version of grep that supports extended regular expressions.
 
 ```bash
-egrep 'pattern1|pattern2' filename
+egrep 'pattern1|pattern2' test.txt
 ```
 
 
@@ -92,11 +92,6 @@ done
 
 ```bash
 #!/bin/bash
-
-if [ "$#" -lt 2 ]; then
-    echo "Usage: $0 pattern filename [filename...]"
-    exit 1
-fi
 
 pattern=$1
 shift
@@ -124,7 +119,7 @@ echo "Total number of regular files: $count"
 a. Pick the line from 3 to 5
 
 ```bash
-sed -n '3,5p' filename
+sed -n '3,5p' test.txt
 ```
 
 b. List the top 5 largest files in a directory and display their sizes
