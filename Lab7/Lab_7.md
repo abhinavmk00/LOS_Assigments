@@ -5,92 +5,156 @@ Timestamp,Src_IP,Dest_IP,Protocol,Source_Port,Destination_Port,Packet_Size,Statu
 
 
 ## Write a awk script to
-### 1.	count how many packets use each protocol (TCP, UDP, ICMP)
+1. Count how many packets use each protocol (TCP, UDP, ICMP)
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 {
+    protocols[$4]++
+}
+END {
+    for (protocol in protocols) {
+        print protocol ": " protocols[protocol]
+    }
+}
 ```
 
-### 2.	filter and print only the dropped packets.
+2. Filter and print only the dropped packets
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && $8 == "Dropped" {
+    print $0
+}
 ```
 
-### 3.	print the Timestamp, Source_IP, Destination_IP, and Packet_Size for packets that have a size greater than 1000 bytes.
+3. Print the Timestamp, Source_IP, Destination_IP, and Packet_Size for packets that have a size greater than 1000 bytes
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && $7 > 1000 {
+    print $1 "," $2 "," $3 "," $7
+}
 ```
 
-### 4.	display traffic that is directed to destination port 443.
+4. Display traffic that is directed to destination port 443
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && $6 == 443 {
+    print $0
+}
 ```
 
-### 5.	print all unique Source_IP addresses from the network_traffic.csv file.
+5. Print all unique Source_IP addresses from the network_traffic.csv file
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 {
+    if (!($2 in seen)) {
+        seen[$2] = 1
+        print $2
+    }
+}
 ```
 
-### 6.	filter only TCP traffic and calculate the average packet size.
+6. Filter only TCP traffic and calculate the average packet size
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && $4 == "TCP" {
+    sum += $7
+    count++
+}
+END {
+    if (count > 0) {
+        print "Average TCP packet size: " sum/count
+    } else {
+        print "No TCP packets found"
+    }
+}
 ```
 
-### 7.	Count invalid records 
+7. Count invalid records
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && NF != 8 {
+    invalid++
+}
+END {
+    print "Invalid records: " invalid
+}
 ```
 
-### 8.	extract and print all rows where the Source_IP is in the 192.168.x.x range.
+8. Extract and print all rows where the Source_IP is in the 192.168.x.x range
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && $2 ~ /^192\.168\./ {
+    print $0
+}
 ```
 
-### 9.	match traffic directed to either port 80 (HTTP) or port 443 (HTTPS).
+9. Match traffic directed to either port 80 (HTTP) or port 443 (HTTPS)
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && ($6 == 80 || $6 == 443) {
+    print $0
+}
 ```
 
-### 10.	filter out rows where the Destination_Port contains any alphanumeric characters (letters or numbers).
+10. Filter out rows where the Destination_Port contains any alphanumeric characters (letters or numbers)
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && $6 ~ /^[0-9]+$/ {
+    print $0
+}
 ```
 
-### 11.	filter out traffic where the protocol is TCP AND the destination port is 443 (HTTPS traffic).
+11. Filter out traffic where the protocol is TCP AND the destination port is 443 (HTTPS traffic)
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && !($4 == "TCP" && $6 == 443) {
+    print $0
+}
 ```
 
-### 12.	filter out and print traffic where the Packet_Size is greater than 1000 OR the Status is Dropped.
+12. Filter out and print traffic where the Packet_Size is greater than 1000 OR the Status is Dropped
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && ($7 > 1000 || $8 == "Dropped") {
+    print $0
+}
 ```
 
-### 13.	print traffic NOT originating from 192.168.x.x IP addresses.
+13. Print traffic NOT originating from 192.168.x.x IP addresses
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && $2 !~ /^192\.168\./ {
+    print $0
+}
 ```
 
-### 14.	filter rows where both Source_IP and Destination_IP are within the 192.168.x.x range.
+14. Filter rows where both Source_IP and Destination_IP are within the 192.168.x.x range
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && $2 ~ /^192\.168\./ && $3 ~ /^192\.168\./ {
+    print $0
+}
 ```
 
-### 15.	filter out traffic where the destination port is 22 OR the packet size is less than 100 bytes.
+15. Filter out traffic where the destination port is 22 OR the packet size is less than 100 bytes
 
-```bash 
-
+```bash
+BEGIN { FS="," }
+NR > 1 && !($6 == 22 || $7 < 100) {
+    print $0
+}
 ```
